@@ -10,6 +10,10 @@ function! s:incCount(counts, item, buf) abort
     return 0
 endfunction
 
+function! neomake#statusline#JobCount(...) abort
+    return len(neomake#GetJobs())
+endfunction
+
 function! neomake#statusline#ResetCountsForBuf(...) abort
     let bufnr = a:0 ? a:1 : bufnr('%')
     let r = (get(s:loclist_counts, bufnr, {}) != {})
